@@ -21,6 +21,7 @@ exports.CreateNote = (req, callback) => {
     var note = new Categoria();
     note.nombre = req.body.text;
 
+
     note.save((err) => {
         err ? callback(err) : callback(null);
     });
