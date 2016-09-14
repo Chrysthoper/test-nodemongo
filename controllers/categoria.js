@@ -1,22 +1,18 @@
 var Categoria = require('../models/categoria');
 
-exports.GetAllCategorias = (callback) => {
+exports.GetAll = (callback) => {
     Categoria.find((err,categorias) => {
-        if(err) {
-            callback(err)
-        }else {
-            callback(null, categorias);
-        }
+        err ? callback(err) : callback(null, categorias);
     });
 };
 
-exports.GetNote = (id, callback) => {
+exports.Get = (id, callback) => {
     Note.findById(id, (err, categoria) => {
         err ? callback(err) : callback(null, categoria);
     });
 };
 
-exports.CreateNote = (req, callback) => {
+exports.Create = (req, callback) => {
 
     var note = new Categoria();
     note.nombre = req.body.text;
